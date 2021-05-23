@@ -18,3 +18,7 @@ services:
         build: ./coneg-panel-api
         ports: 
             - "5000:5000"
+    web:
+        # Web container
+    inspector:
+        # Inspector module
