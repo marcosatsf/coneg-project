@@ -1,0 +1,9 @@
+[submodule "inspetint"]
+	path = inspetint
+	url = git@github.com:marcosatsf/inspetint.git
+[submodule "coneg-panel"]
+	path = coneg-panel
+	url = git@github.com:marcosatsf/coneg-panel.git
+[submodule "coneg-panel-api"]
+	path = coneg-panel-api
+	url = git@github.com:marcosatsf/coneg-panel-api.git

@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+    db:
+        image: postgres
+        restart: always
+        environment:
+            POSTGRES_USER: coneg_user
+            POSTGRES_PASSWORD: conegpass
+            PGDATA: /var/lib/postgresql/data/pgdata
+        ports: 
+            - "5435:5432"
+        volumes: 
+            # Persistent data
+            - ./coneg-postgres-data:/var/lib/postgresql/data
+            # SQL to create/init ConEg tables
+            - ./coneg-sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+    api:
+        build: ./coneg-panel-api
+        ports: 
+            - "5000:5000"
