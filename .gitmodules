@@ -10,3 +10,6 @@
 [submodule "coneg-insp-api"]
 	path = coneg-insp-api
 	url = git@github.com:marcosatsf/coneg-insp-api.git
+[submodule "coneg-inspetint"]
+	path = coneg-inspetint
+	url = git@github.com:marcosatsf/coneg-inspetint.git
