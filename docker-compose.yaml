@@ -7,18 +7,24 @@ services:
             POSTGRES_USER: coneg_user
             POSTGRES_PASSWORD: conegpass
             PGDATA: /var/lib/postgresql/data/pgdata
-        ports: 
+        ports:
             - "5435:5432"
-        volumes: 
+        volumes:
             # Persistent data
             - ./coneg-postgres-data:/var/lib/postgresql/data
             # SQL to create/init ConEg tables
             - ./coneg-sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
     api:
         build: ./coneg-panel-api
-        ports: 
+        ports:
             - "5000:5000"
+        volumes:
+            - ./data-backend:/coneg_root/shr-data
+    api_inspector:
+        build: ./coneg-insp-api
+        ports:
+            - "6000:6000"
+        volumes:
+            - ./data-backend:/coneg_inspetint/shr-data
     # web:
         # Web container
-    #inspector:
-        # Inspector module
