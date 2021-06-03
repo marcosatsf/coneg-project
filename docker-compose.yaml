@@ -13,21 +13,26 @@ services:
             # Persistent data
             - ./coneg-postgres-data:/var/lib/postgresql/data
             # SQL to create/init ConEg tables
-            - ./coneg-sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+            - ./coneg-sql/initial_states.sql:/docker-entrypoint-initdb.d/initial_states.sql
     api:
         build: ./coneg-panel-api
         ports:
             - "5000:5000"
+        depends_on:
+            - "db"
         volumes:
             - ./data-backend:/coneg_root/shr-data
     api_inspector:
         build: ./coneg-insp-api
         ports:
             - "6000:6000"
+        depends_on:
+            - "api"
         volumes:
             - ./data-backend:/coneg_inspetint/shr-data
     web:
         build: ./coneg-panel
         ports:
             - "8080:8080"
-            - "5000:5000"
+        depends_on:
+            - "api"

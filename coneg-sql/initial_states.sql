@@ -12,8 +12,19 @@ CREATE TABLE IF NOT EXISTS coneg.dim_cadastrados (
 CREATE TABLE IF NOT EXISTS coneg.dim_status (
   id SERIAL PRIMARY KEY,
   mascara boolean,
-  cadastrado boolean
+  cadastrado int
 );
+
+INSERT INTO coneg.dim_status
+(id, mascara, cadastrado)
+VALUES
+-- mask
+(0, '1', -1),
+-- not mask & not registered
+(1, '0', 0),
+-- not mask & registered
+(2, '0', 1)
+ON CONFLICT DO NOTHING;
 
 -- Creating fato_faces
 CREATE TABLE IF NOT EXISTS coneg.fato_faces (
@@ -22,6 +33,5 @@ CREATE TABLE IF NOT EXISTS coneg.fato_faces (
   ts timestamp,
   "status" int,
   pessoa int,
-  CONSTRAINT fk_status FOREIGN KEY("status") REFERENCES coneg.dim_status(id),
-  CONSTRAINT fk_pessoa FOREIGN KEY("pessoa") REFERENCES coneg.dim_cadastrados(pesid)
+  CONSTRAINT fk_status FOREIGN KEY("status") REFERENCES coneg.dim_status(id)
 );
