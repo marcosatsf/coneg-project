@@ -35,3 +35,11 @@ CREATE TABLE IF NOT EXISTS coneg.fato_faces (
   pessoa int,
   CONSTRAINT fk_status FOREIGN KEY("status") REFERENCES coneg.dim_status(id)
 );
+
+-- Creating users table
+CREATE TABLE IF NOT EXISTS coneg.user (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(50),
+  password_hash VARCHAR(128),
+  UNIQUE(username)
+);
