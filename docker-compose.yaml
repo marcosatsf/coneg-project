@@ -27,7 +27,7 @@ services:
         ports:
             - "6000:6000"
         depends_on:
-            - "api"
+            - api
         volumes:
             - ./data-backend:/coneg_inspetint/shr-data
     web:
@@ -35,4 +35,4 @@ services:
         ports:
             - "8080:8080"
         depends_on:
-            - "api"
+            - api
