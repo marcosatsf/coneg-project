@@ -5,7 +5,8 @@ CREATE TABLE IF NOT EXISTS coneg.dim_cadastrados (
   pesid SERIAL PRIMARY KEY,
   nome varchar(128),
   email varchar(64),
-  telefone varchar(16)
+  telefone varchar(16),
+  notificado boolean DEFAULT FALSE
 );
 
 -- Creating dim_status
