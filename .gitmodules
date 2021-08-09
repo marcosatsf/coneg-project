@@ -10,3 +10,6 @@
 [submodule "coneg-inspetint"]
 	path = coneg-inspetint
 	url = git@github.com:marcosatsf/coneg-inspetint.git
+[submodule "coneg-scheduler"]
+	path = coneg-scheduler
+	url = git@github.com:marcosatsf/coneg-scheduler.git
