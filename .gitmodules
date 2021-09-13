@@ -13,3 +13,6 @@
 [submodule "coneg-scheduler"]
 	path = coneg-scheduler
 	url = git@github.com:marcosatsf/coneg-scheduler.git
+[submodule "coneg-panel-user"]
+	path = coneg-panel-user
+	url = git@github.com:marcosatsf/coneg-panel-user.git
