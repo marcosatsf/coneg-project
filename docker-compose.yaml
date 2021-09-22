@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3"
 services:
     db:
         image: postgres
@@ -34,5 +34,11 @@ services:
         build: ./coneg-panel
         ports:
             - "8080:8080"
+        depends_on:
+            - api
+    patra:
+        build: ./coneg-panel-user
+        ports:
+            - "8081:8081"
         depends_on:
             - api
